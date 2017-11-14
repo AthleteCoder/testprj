@@ -1,0 +1,43 @@
+<div class="col-xs-6">
+  <ul class="list-group panel panel-default panel-body">
+    <li *ngIf="currentDescription.Description;else elseBlock" class="list-group-item">
+      <span class="badge">Description</span>
+      <h1>Name: {{currentDescription.Description.Name}}</h1>
+      <h2>Calories: {{currentDescription.Description.Calories}}</h2>
+      <h2>Color: {{currentDescription.Description.Color}}</h2>
+      <h2>Ingredients: {{currentDescription.Description.Ingredients}}</h2>
+      <button (click)="deleteDrink()" class="btn btn-danger">Remove Drink</button>
+      <button (click)="show = !show" class="btn btn-info">Edit Drink</button>
+    </li>
+    <ng-template #elseBlock>
+      <li class="list-group-item">
+          <span class="badge">Description</span>
+          <h1>Click on any drink to edit!</h1>
+          <h1>Or add new one!</h1>
+          <h3>Name</h3>
+          <input type="text" [(ngModel)]="newItem.Name" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+          <h3>Color</h3>
+          <input type="text" [(ngModel)]="newItem.Color" class="form-control" placeholder="Color" aria-describedby="basic-addon1">
+          <h3>Ingredients</h3>
+          <input type="text" [(ngModel)]="newItem.Ingredients" class="form-control" placeholder="Ingredients" aria-describedby="basic-addon1">
+          <h3>Calories</h3>
+          <input type="text" [(ngModel)]="newItem.Calories" class="form-control" placeholder="Calories" aria-describedby="basic-addon1">
+          <h3>Add drink!</h3>
+          <button (click)="addNewDrink()" class="btn btn-primary center-block">Add Drink</button>
+      </li>
+    </ng-template>
+    <li *ngIf="show" class="list-group-item">
+        <h1>Edit item</h1>
+        <h3>Name</h3>
+        <input type="text" [(ngModel)]="currentDescription.Description.Name" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+        <h3>Color</h3>
+        <input type="text" [(ngModel)]="currentDescription.Description.Color" class="form-control" placeholder="Color" aria-describedby="basic-addon1">
+        <h3>Ingredients</h3>
+        <input type="text" [(ngModel)]="currentDescription.Description.Ingredients" class="form-control" placeholder="Ingredients" aria-describedby="basic-addon1">
+        <h3>Calories</h3>
+        <input type="text" [(ngModel)]="currentDescription.Description.Calories" class="form-control" placeholder="Calories" aria-describedby="basic-addon1">
+        <h3>Edit drink!</h3>
+        <button (click)="editDrink()" class="btn btn-primary center-block">Edit Drink</button>
+    </li>
+  </ul>
+</div>

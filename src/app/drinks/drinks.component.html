@@ -1,0 +1,10 @@
+<div class="col-xs-6">
+  <ul class="list-group panel panel-default panel-body">
+    <li class="list-group-item" *ngFor="let drink of collectables;let i = index">
+      <span class="badge">Drink</span>
+      <button class="btn btn-success"(click)="showDetails(i)">Show Description</button>
+      {{drink.Name}}
+    </li>
+  <button class="btn btn-info"(click)="showAddForm()">Add</button>
+  </ul>
+</div>
